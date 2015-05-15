@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.2" client="site" method="upgrade">
+<extension type="module" version="3.4" client="site" method="upgrade">
 	<name>MOD_GAMIFICATIONACTIVITIES</name>
 	<author>Todor Iliev</author>
-	<copyright>Copyright (C) 2014 Todor Iliev ( ITPrism.com )</copyright>
+	<copyright>Copyright (C) 2015 Todor Iliev ( ITPrism.com )</copyright>
 	<license>http://www.gnu.org/copyleft/gpl.html</license>
 	<authorEmail>todor@itprism.com</authorEmail>
 	<authorUrl>http://itprism.com</authorUrl>
-	<version>1.3</version>
-	<creationDate>30 May, 2014</creationDate>
+	<version>2.0</version>
+	<creationDate>23 April, 2015</creationDate>
 	<description><![CDATA[
     <p>Gamification Activities is a module that displays last user activities.</p>
     <p>Invest in the extension and help for its improvement. You can <a href="http://itprism.com/sponsorship" target="_blank">sponsor the extension via SMS, PayPal or Bitcoin</a>.</p>
     <p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive <strong>gifts</strong>, <strong>discount codes</strong>, information about <strong>updates</strong> and information about <strong>new ITPrism extensions</strong>.</p>
-    <p>Please, <a href="http://extensions.joomla.org/extensions/e-commerce/credits-a-point-systems/23872" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
+    <p>Please, <a href="http://extensions.joomla.org/extensions/extension/e-commerce/credits-a-point-systems/gamification-platform" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
     ]]></description>
 
 	<help url="MOD_GAMIFICATIONACTIVITIES_HELP_URL" />
 
 	<files>
 		<filename module="mod_gamificationactivities">mod_gamificationactivities.php</filename>
-        <filename>index.html</filename>
 
 		<folder>language</folder>
 		<folder>tmpl</folder>
@@ -29,6 +28,13 @@
 		<fields name="params">
 			<fieldset name="basic">
 
+                <field name="integration_avatars_size" type="list" default="small" label="MOD_GAMIFICATIONACTIVITIES_AVATARS_SIZE" description="MOD_GAMIFICATIONACTIVITIES_AVATARS_SIZE_DESC" >
+                    <option value="icon">MOD_GAMIFICATIONACTIVITIES_ICON</option>
+                    <option value="small">MOD_GAMIFICATIONACTIVITIES_SMALL</option>
+                    <option value="medium">MOD_GAMIFICATIONACTIVITIES_MEDIUM</option>
+                    <option value="large">MOD_GAMIFICATIONACTIVITIES_LARGE</option>
+                </field>
+                
                 <field name="name_linkable" type="radio" class="btn-group"
                     label="MOD_GAMIFICATIONACTIVITIES_NAME_LINKABLE" 
                     description="MOD_GAMIFICATIONACTIVITIES_NAME_LINKABLE_DESC"
@@ -43,24 +49,6 @@
                     default="10" />
                     
 			</fieldset>
-
-            <fieldset name="integration" label="MOD_GAMIFICATIONACTIVITIES_INTEGRATION_OPTIONS" >
-                <field name="integrate" type="list"
-                    label="MOD_GAMIFICATIONACTIVITIES_INTEGRATE" 
-                    description="MOD_GAMIFICATIONACTIVITIES_INTEGRATE_DESC"
-                    default="none">
-                    <option value="none">MOD_GAMIFICATIONACTIVITIES_NONE</option>
-                    <option value="socialcommunity">MOD_GAMIFICATIONACTIVITIES_SOCIAL_COMMUNITY</option>
-                    <option value="kunena">MOD_GAMIFICATIONACTIVITIES_KUNENA</option>
-                    <option value="gravatar">MOD_GAMIFICATIONACTIVITIES_GRAVATAR</option>
-                    <option value="jomsocial">MOD_GAMIFICATIONACTIVITIES_JOMSOCIAL</option>
-                </field>
-                
-                <field name="avatar_size" type="text"
-                    label="MOD_GAMIFICATIONACTIVITIES_AVATAR_SIZE" 
-                    description="MOD_GAMIFICATIONACTIVITIES_AVATAR_SIZE_DESC"
-                    default="50" />
-            </fieldset>
 
             <fieldset name="advanced">
                 <field name="moduleclass_sfx" type="text"

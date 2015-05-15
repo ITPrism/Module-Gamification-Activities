@@ -3,53 +3,55 @@
  * @package      Gamification Platform
  * @subpackage   Modules
  * @author       Todor Iliev
- * @copyright    Copyright (C) 2014 Todor Iliev <todor@itprism.com>. All rights reserved.
+ * @copyright    Copyright (C) 2015 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
 
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<div class="gfy-modlb<?php echo $moduleclass_sfx;?>">
+<div class="gfy-mod-activities<?php echo $moduleclass_sfx;?>">
 
 <?php for ($i = 0; $i < $numberItems; $i++) {
-
     // Social Profile
     if (!empty($socialProfiles)) {
-    
+
         // Get avatar
-        $avatar = $socialProfiles->getAvatar($activities[$i]->user_id, $avatarSize);
+        $avatar = $socialProfiles->getAvatar($activities[$i]["user_id"], $avatarSize, $returnDefaultAvatar);
         if (!$avatar) {
-            $avatar = '<img class="media-object" src="media/com_gamification/images/no_picture.png">';
+            $avatar = '<img class="media-object" src="'.$defaultAvatar.'">';
         } else {
-            $avatar = '<img class="media-object" src="'.$avatar.'" width="'.$avatarSize.'" height="'.$avatarSize.'">';
+            $avatar = '<img class="media-object" src="'.$avatar.'">';
         }
     
-        $link   =  $socialProfiles->getLink($activities[$i]->user_id);
+        $link   =  $socialProfiles->getLink($activities[$i]["user_id"]);
     
     } else {
-        $avatar = '<img class="media-object" src="media/com_gamification/images/no_picture.png" width="'.$avatarSize.'" height="'.$avatarSize.'">';
+        $avatar = '<img class="media-object" src="media/com_gamification/images/default_square.png" width="50" height="50">';
         $link   = 'javascript: void(0);';
     }
-    
+
+    $cleanName = htmlspecialchars($activities[$i]["name"], ENT_QUOTES, "UTF-8");
+
     if (!$nameLinkable) {
-        $name = htmlspecialchars($activities[$i]->name, ENT_QUOTES, "UTF-8");
+        $name = $cleanName;
     } else {
-        $name = '<a href="'.$link.'">'.htmlspecialchars($activities[$i]->name, ENT_QUOTES, "UTF-8").'</a>';
+        $name = '<a href="'.$link.'">'.htmlspecialchars($activities[$i]["name"], ENT_QUOTES, "UTF-8").'</a>';
     }
     
     ?>
     <div class="media">
-    
-        <a class="pull-left" href="<?php echo $link;?>">
-        <?php echo $avatar; ?>
-        </a>
-            
+        <div class="media-left">
+            <a href="<?php echo $link;?>">
+                <?php echo $avatar; ?>
+            </a>
+        </div>
+
         <div class="media-body">
             <h5 class="media-heading"><?php echo $name;?></h5>
-            <p class="gfy-media-activity"><?php echo htmlspecialchars($activities[$i]->info, ENT_QUOTES, "UTF-8");?></p>
+            <p><?php echo htmlspecialchars($activities[$i]["info"], ENT_QUOTES, "UTF-8");?></p>
         </div>
-        
     </div>
 <?php } ?>
+
 </div>
