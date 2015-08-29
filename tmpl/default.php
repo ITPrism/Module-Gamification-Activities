@@ -4,7 +4,7 @@
  * @subpackage   Modules
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2015 Todor Iliev <todor@itprism.com>. All rights reserved.
- * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @license      GNU General Public License version 3 or later; see LICENSE.txt
  */
 
 // no direct access
@@ -49,7 +49,11 @@ defined('_JEXEC') or die;
 
         <div class="media-body">
             <h5 class="media-heading"><?php echo $name;?></h5>
-            <p><?php echo htmlspecialchars($activities[$i]["info"], ENT_QUOTES, "UTF-8");?></p>
+            <p><?php echo htmlspecialchars($activities[$i]["content"], ENT_QUOTES, "UTF-8");?></p>
+            <?php if ($params->get("display_link", 0) and !empty($activities[$i]["url"])) {
+                $title = (!empty($activities[$i]["title"])) ? JText::sprintf("MOD_GAMIFICATIONACTIVITIES_LINK_TO_S", $activities[$i]["title"]) : JText::_("MOD_GAMIFICATIONACTIVITIES_LINK_TO");
+                echo JHtml::_("gamification.link", $activities[$i]["url"], $title, array("class" => "small"));
+            }?>
         </div>
     </div>
 <?php } ?>

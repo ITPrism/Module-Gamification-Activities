@@ -4,14 +4,14 @@
  * @subpackage   Modules
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2015 Todor Iliev <todor@itprism.com>. All rights reserved.
- * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @license      GNU General Public License version 3 or later; see LICENSE.txt
  */
 
 // no direct access
 defined("_JEXEC") or die;
 
-jimport("prism.init");
-jimport("gamification.init");
+jimport("Prism.init");
+jimport("Gamification.init");
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
@@ -28,7 +28,7 @@ $options = array(
     "limit"          => $params->get("results_number", 10)
 );
 
-$activities     = new Gamification\Activities(JFactory::getDbo());
+$activities     = new Gamification\Activity\Activities(JFactory::getDbo());
 $activities->load($options);
 
 $avatarSize      = $params->get("integration_avatars_size", "small");

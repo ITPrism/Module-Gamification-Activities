@@ -3,14 +3,13 @@
 	<name>MOD_GAMIFICATIONACTIVITIES</name>
 	<author>Todor Iliev</author>
 	<copyright>Copyright (C) 2015 Todor Iliev ( ITPrism.com )</copyright>
-	<license>http://www.gnu.org/copyleft/gpl.html</license>
+	<license>http://www.gnu.org/licenses/gpl-3.0.en.html</license>
 	<authorEmail>todor@itprism.com</authorEmail>
 	<authorUrl>http://itprism.com</authorUrl>
 	<version>2.0</version>
-	<creationDate>23 April, 2015</creationDate>
+	<creationDate>28 August, 2015</creationDate>
 	<description><![CDATA[
     <p>Gamification Activities is a module that displays last user activities.</p>
-    <p>Invest in the extension and help for its improvement. You can <a href="http://itprism.com/sponsorship" target="_blank">sponsor the extension via SMS, PayPal or Bitcoin</a>.</p>
     <p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive <strong>gifts</strong>, <strong>discount codes</strong>, information about <strong>updates</strong> and information about <strong>new ITPrism extensions</strong>.</p>
     <p>Please, <a href="http://extensions.joomla.org/extensions/extension/e-commerce/credits-a-point-systems/gamification-platform" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
     ]]></description>
@@ -47,6 +46,14 @@
                     label="MOD_GAMIFICATIONACTIVITIES_RESULTS_NUMBER" 
                     description="MOD_GAMIFICATIONACTIVITIES_RESULTS_NUMBER_DESC"
                     default="10" />
+
+                <field name="display_link" type="radio" class="btn-group"
+                       label="MOD_GAMIFICATIONACTIVITIES_DISPLAY_LINK"
+                       description="MOD_GAMIFICATIONACTIVITIES_DISPLAY_LINK_DESC"
+                       default="0">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
                     
 			</fieldset>
 
