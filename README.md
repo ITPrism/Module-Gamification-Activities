@@ -1,6 +1,6 @@
 Module - Gamification Activities
 ==============================
-( Version 2.0 )
+( Version 2.1 )
 - - -
 
 Gamification Activities is a module that displays latest activities.
@@ -10,3 +10,6 @@ Gamification Activities is a module that displays latest activities.
 
 Changelog
 ---------
+
+v2.1
+* Reworked to meet changes in v2.1 of the gamification platform.
